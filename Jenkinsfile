@@ -11,7 +11,7 @@ pipeline {
         
         stage('docker image build ') {
             steps {
-                sh 'docker build -t java-spring-19:v${BUILD_NUMBER} .'
+                sh 'docker build -t java-spring:v${BUILD_NUMBER} .'
             }
         }
         stage('docker login ') {
@@ -21,14 +21,15 @@ pipeline {
         }
         stage('docker tagging ') {
             steps {
-                sh 'docker tag java-spring-19:v${BUILD_NUMBER} malleshdevops/devops19:spring-19.${BUILD_NUMBER}'
+                sh 'docker tag java-spring:v${BUILD_NUMBER} malleshdevops/dev22:spring-v${BUILD_NUMBER}'
             }
         }
       stage('image push dockerhub ') {
             steps {
-                sh 'docker push malleshdevops/devops19:spring-19.${BUILD_NUMBER}'
+                sh 'docker push malleshdevops/dev22:spring-v${BUILD_NUMBER}'
             }
         }
+/*
       stage('push ECR'){
             steps {
                 sh '''aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 897276212041.dkr.ecr.us-west-2.amazonaws.com
@@ -39,7 +40,7 @@ pipeline {
        '''
             }
           }
-
+*/
     }
     post{
         always{
