@@ -59,6 +59,9 @@ pipeline {
      Thanks
      Devops Team''', subject: 'testing jenkins pipeline: $JOB_URL', to: 'malleshdevops2021@outlook.com'
     }
+    cleanup{
+     cleanWs()
+    }
     }
 
 }
