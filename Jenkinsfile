@@ -1,5 +1,13 @@
 pipeline {
     agent any
+    options { 
+       buildDiscarder(logRotator(numToKeepStr: '10')) 
+       timestamps()
+       
+       }
+    tools {
+      maven 'maven'
+    }
 
     stages {
        
