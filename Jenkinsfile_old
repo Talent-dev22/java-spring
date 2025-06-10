@@ -31,7 +31,7 @@ pipeline {
       stage('push ECR'){
             steps {
                 sh '''
-		 docker tag java-spring-22:v{BUILD_NUMBER} 759449706669.dkr.ecr.us-west-2.amazonaws.com/dev22/spring:v${BUILD_NUMBER}
+		 docker tag java-spring-22:v${BUILD_NUMBER} 759449706669.dkr.ecr.us-west-2.amazonaws.com/dev22/spring:v${BUILD_NUMBER}
                  docker push 759449706669.dkr.ecr.us-west-2.amazonaws.com/dev22/spring:v${BUILD_NUMBER}
 		   
        '''
