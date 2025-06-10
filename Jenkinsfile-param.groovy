@@ -33,7 +33,7 @@ pipeline {
                 }
 
             steps {
-                sh 'docker push malleshdevops/dev22:spring-22.{BUILD_NUMBER}'
+                sh 'docker push malleshdevops/dev22:spring-22.${BUILD_NUMBER}'
             }
         }
       stage('authenticate ECR'){
@@ -51,7 +51,7 @@ pipeline {
                 }
             steps {
                 sh '''
-		 docker tag java-spring-22:v{BUILD_NUMBER} 759449706669.dkr.ecr.us-west-2.amazonaws.com/dev22/spring:v${BUILD_NUMBER}
+		 docker tag java-spring-22:v${BUILD_NUMBER} 759449706669.dkr.ecr.us-west-2.amazonaws.com/dev22/spring:v${BUILD_NUMBER}
                  docker push 759449706669.dkr.ecr.us-west-2.amazonaws.com/dev22/spring:v${BUILD_NUMBER}
 		   
        '''
