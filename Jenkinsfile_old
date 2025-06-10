@@ -5,7 +5,7 @@ pipeline {
        
         stage('docker image build ') {
             steps {
-                sh 'docker build -t java-spring-22:v{BUILD_NUMBER} -f Dockerfile_old .'
+                sh 'docker build -t java-spring-22:v${BUILD_NUMBER} -f Dockerfile_old .'
             }
         }
         stage('docker login ') {
@@ -15,7 +15,7 @@ pipeline {
         }
         stage('docker tagging ') {
             steps {
-                sh 'docker tag java-spring-22:v{BUILD_NUMBER} malleshdevops/dev22:spring-22.{BUILD_NUMBER}'
+                sh 'docker tag java-spring-22:v${BUILD_NUMBER} malleshdevops/dev22:spring-22.${BUILD_NUMBER}'
             }
         }
       stage('image push dockerhub ') {
