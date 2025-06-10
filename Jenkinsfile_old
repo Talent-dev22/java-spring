@@ -5,7 +5,7 @@ pipeline {
        
         stage('docker image build ') {
             steps {
-                sh 'docker build -t java-spring-22:v{BUILD_NUMBER} -f "Dockerfile_old" .'
+                sh 'docker build -t java-spring-22:v{BUILD_NUMBER} -f Dockerfile_old .'
             }
         }
         stage('docker login ') {
